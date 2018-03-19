@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Pokemon.Models.TrainerModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.trainer_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.trainer_age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.address)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.trainer_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.trainer_age)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.address)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.trainer_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.trainer_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.trainer_id }) | 
+            @Html.ActionLink("See all pokemons", "TrainersPokemon", new { id = item.trainer_id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Pokemon.Models.PokemonModel>
+
+@{
+    ViewBag.Title = "TrainersPokemon";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>TrainersPokemon</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create" , "Pokemon")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.pokemon_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pokemon_type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pokemon_level)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.trainer_id)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.pokemon_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pokemon_type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pokemon_level)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.trainer_id)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit_for_pokemon", new { id = item.pokemon_id }) |
+            @Html.ActionLink("Details", "Details_for_pokemon", new { id=item.pokemon_id }) |
+            @Html.ActionLink("Delete", "Delete_for_pokemon", new { id = item.pokemon_id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,51 @@
+﻿@model Pokemon.Models.PokemonModel
+
+@{
+    ViewBag.Title = "Details_for_pokemon";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details_for_pokemon</h2>
+
+<div>
+    <h4>PokemonModel</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.pokemon_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pokemon_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pokemon_type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pokemon_type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pokemon_level)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pokemon_level)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.trainer_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.trainer_id)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.pokemon_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
